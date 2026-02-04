@@ -7,15 +7,15 @@
   <meta name="description" content="Controla cada litro de petróleo de tu camión surtidor. Registra cargas por máquina, chofer y faena, incluso sin internet. Detecta pérdidas, mejora rendimientos y elimina el caos de papel, WhatsApp y Excel." />
   <style>
     :root {
-      --primary: #ff7a00;
-      --primary-dark: #e56b00;
-      --background: #0f172a;
-      --background-light: #111827;
-      --card-bg: #020617;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --accent: #38bdf8;
-      --border-subtle: #1f2937;
+      /* Basado en la paleta clara de Besimplit */
+      --primary: #0081cb; /* azul logo aproximado */
+      --primary-dark: #00639a;
+      --primary-soft: #e3f2fd;
+      --background: #f5f5f5;
+      --background-alt: #ffffff;
+      --border-subtle: #e5e7eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
       --max-width: 1120px;
     }
 
@@ -26,7 +26,7 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #020617 60%);
+      background: var(--background);
       color: var(--text-main);
       line-height: 1.6;
     }
@@ -40,12 +40,13 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: linear-gradient(to bottom, #f9fafb 0%, #f3f4f6 40%, #ffffff 100%);
     }
 
     header {
       border-bottom: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.96);
-      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 50;
@@ -54,7 +55,7 @@
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -64,20 +65,13 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 20%, #fde68a, #f97316 40%, #111827 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #0b1120;
+    .logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
 
     .nav-title {
@@ -105,7 +99,7 @@
 
     .btn {
       border-radius: 999px;
-      padding: 0.6rem 1.2rem;
+      padding: 0.55rem 1.2rem;
       font-size: 0.9rem;
       font-weight: 600;
       border: 1px solid transparent;
@@ -114,30 +108,30 @@
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      transition: all 0.18s ease-out;
+      transition: all 0.16s ease-out;
       white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #0b1120;
-      box-shadow: 0 10px 30px rgba(248, 113, 22, 0.4);
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 40px rgba(248, 113, 22, 0.55);
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--text-main);
-      border-color: #374151;
+      color: var(--primary);
+      border-color: rgba(0, 129, 203, 0.3);
     }
 
     .btn-outline:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: #4b5563;
+      background: var(--primary-soft);
+      border-color: rgba(0, 129, 203, 0.6);
     }
 
     main {
@@ -155,7 +149,7 @@
 
     /* Hero */
     .hero {
-      padding-top: 3.5rem;
+      padding-top: 2.75rem;
     }
 
     .hero-grid {
@@ -169,25 +163,27 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.2rem 0.7rem;
+      padding: 0.15rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid #d1d5db;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
       margin-bottom: 1rem;
-      background: rgba(15, 23, 42, 0.7);
+      background: #f9fafb;
     }
 
     .eyebrow span {
-      color: #fde68a;
+      color: var(--primary);
+      font-weight: 600;
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
       line-height: 1.1;
       margin: 0 0 1rem;
+      color: #0f172a;
     }
 
     .hero h1 span {
@@ -204,8 +200,9 @@
     .hero-bullets {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 0.75rem 1.5rem;
-      margin-bottom: 2rem;
+      gap: 0.6rem 1.5rem;
+      margin-bottom: 1.75rem;
+      padding-left: 0;
     }
 
     .hero-bullets li {
@@ -219,11 +216,11 @@
 
     .hero-bullets li::before {
       content: "";
-      margin-top: 0.35rem;
-      width: 8px;
-      height: 8px;
+      margin-top: 0.4rem;
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: var(--primary);
       flex-shrink: 0;
     }
 
@@ -240,11 +237,11 @@
     }
 
     .hero-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.96));
-      border-radius: 24px;
-      padding: 1.75rem 1.5rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+      background: var(--background-alt);
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
     }
 
     .hero-card-title {
@@ -288,7 +285,7 @@
     .hero-divider {
       height: 1px;
       border-radius: 999px;
-      background: linear-gradient(to right, transparent, rgba(148, 163, 184, 0.6), transparent);
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
       margin: 1.25rem 0 1rem;
     }
 
@@ -309,7 +306,7 @@
 
     .hero-list li::before {
       content: "•";
-      color: var(--accent);
+      color: var(--primary);
       margin-top: -0.05rem;
       font-size: 0.9rem;
     }
@@ -331,6 +328,7 @@
     .section-title {
       font-size: 1.5rem;
       margin: 0 0 0.5rem;
+      color: #111827;
     }
 
     .section-text {
@@ -362,12 +360,14 @@
       width: 26px;
       height: 26px;
       border-radius: 999px;
-      border: 1px solid #4b5563;
+      border: 1px solid #d1d5db;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
       flex-shrink: 0;
+      color: var(--primary);
+      background: #f9fafb;
     }
 
     .problem-title {
@@ -382,16 +382,17 @@
     }
 
     .problem-callout {
-      background: rgba(15, 23, 42, 0.9);
+      background: #ffffff;
       border-radius: 16px;
       padding: 1.25rem 1.25rem;
       border: 1px solid var(--border-subtle);
       font-size: 0.9rem;
       color: var(--text-muted);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
     }
 
     .problem-callout strong {
-      color: #e5e7eb;
+      color: #111827;
     }
 
     /* Cómo funciona */
@@ -402,7 +403,7 @@
     }
 
     .step-card {
-      background: var(--background-light);
+      background: #ffffff;
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       padding: 1.25rem 1.4rem;
@@ -450,11 +451,12 @@
     }
 
     .roi-card {
-      background: linear-gradient(135deg, rgba(248, 113, 22, 0.12), rgba(15, 23, 42, 0.98));
+      background: #ffffff;
       border-radius: 18px;
-      border: 1px solid rgba(248, 113, 22, 0.4);
+      border: 1px solid var(--border-subtle);
       padding: 1.4rem 1.5rem;
       font-size: 0.9rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
     }
 
     .roi-grid {
@@ -494,7 +496,7 @@
     }
 
     .feature-item {
-      background: var(--background-light);
+      background: #ffffff;
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       padding: 1.1rem 1.3rem;
@@ -522,27 +524,26 @@
     .pill {
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid #374151;
+      border: 1px solid #d1d5db;
       font-size: 0.8rem;
       color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.7);
+      background: #ffffff;
     }
 
     /* Logos / social proof */
     .logos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.25rem;
+      align-items: center;
     }
 
-    .logo-badge {
-      border-radius: 999px;
-      border: 1px dashed #374151;
-      padding: 0.5rem 0.9rem;
-      text-align: center;
-      background: rgba(15, 23, 42, 0.5);
+    .logo-img-customer {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(0.15);
+      opacity: 0.9;
     }
 
     /* Steps */
@@ -557,7 +558,7 @@
     }
 
     .steps-item {
-      background: var(--background-light);
+      background: #ffffff;
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       padding: 1.1rem 1.3rem;
@@ -590,6 +591,7 @@
     .cta-final h2 {
       font-size: 1.6rem;
       margin-bottom: 0.6rem;
+      color: #111827;
     }
 
     .cta-final p {
@@ -603,6 +605,7 @@
       padding: 1.25rem 1.25rem 1.75rem;
       font-size: 0.8rem;
       color: var(--text-muted);
+      background: #f9fafb;
     }
 
     .footer-inner {
@@ -637,11 +640,11 @@
       }
 
       .hero {
-        padding-top: 2.5rem;
+        padding-top: 2.2rem;
       }
 
       .hero-card {
-        padding: 1.5rem 1.25rem;
+        padding: 1.4rem 1.25rem;
       }
 
       .section {
@@ -655,10 +658,12 @@
     <header>
       <nav class="nav">
         <div class="nav-left">
-          <div class="logo-mark">B</div>
+          <a href="https://besimplit.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://besimplit.com/wp-content/uploads/2017/07/logo-bs-positivo.svg" alt="Besimplit" class="logo-img" />
+          </a>
           <div class="nav-title">
-            <strong>Besimplit</strong>
-            <span>Bediesel · Control de petróleo</span>
+            <strong>Bediesel</strong>
+            <span>Control de petróleo para camión surtidor</span>
           </div>
         </div>
         <div class="nav-cta">
@@ -991,17 +996,15 @@
             </p>
           </div>
           <div class="logos-grid">
-            <div class="logo-badge">Constructora Harr</div>
-            <div class="logo-badge">MPF Ingeniería</div>
-            <div class="logo-badge">2TH</div>
-            <div class="logo-badge">Izarra Ingenieros</div>
-            <div class="logo-badge">MST</div>
-            <div class="logo-badge">Alkamako (forestal)</div>
-            <div class="logo-badge">Guillaume (agrícola)</div>
-            <div class="logo-badge">IDESC</div>
-            <div class="logo-badge">Don Orlando</div>
-            <div class="logo-badge">Las Araucarias</div>
-            <div class="logo-badge">Rocabedrill</div>
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo3.png" alt="Cliente 1" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo7.png" alt="Cliente 2" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo4.png" alt="Cliente 3" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo2.png" alt="Cliente 4" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/09/CUSTOMERS-LOGOS-1.png" alt="Clientes 5" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo5.png" alt="Cliente 6" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo6.png" alt="Cliente 7" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/Logo1.png" alt="Cliente 8" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/12/CUSTOMERS-LOGOS-3.png" alt="Clientes 9" class="logo-img-customer" />
           </div>
         </div>
       </section>
