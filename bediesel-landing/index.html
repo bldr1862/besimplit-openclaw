@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bediesel - Control de petróleo para tu camión surtidor | Besimplit</title>
+  <meta name="description" content="Controla cada litro de petróleo de tu camión surtidor. Registra cargas por máquina, chofer y faena, incluso sin internet. Detecta pérdidas, mejora rendimientos y elimina el caos de papel, WhatsApp y Excel." />
+  <style>
+    :root {
+      --primary: #ff7a00;
+      --primary-dark: #e56b00;
+      --background: #0f172a;
+      --background-light: #111827;
+      --card-bg: #020617;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --border-subtle: #1f2937;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937, #020617 60%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #fde68a, #f97316 40%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0b1120;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .nav-title strong {
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-title span {
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #0b1120;
+      box-shadow: 0 10px 30px rgba(248, 113, 22, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px rgba(248, 113, 22, 0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: #374151;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: #4b5563;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .eyebrow span {
+      color: #fde68a;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-bullets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-bullets li {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .hero-bullets li::before {
+      content: "";
+      margin-top: 0.35rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      flex-shrink: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), rgba(15, 23, 42, 0.96));
+      border-radius: 24px;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-metric-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-metric {
+      flex: 1;
+    }
+
+    .hero-metric-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-metric-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .hero-metric-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-divider {
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(to right, transparent, rgba(148, 163, 184, 0.6), transparent);
+      margin: 1.25rem 0 1rem;
+    }
+
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-list li {
+      display: flex;
+      gap: 0.4rem;
+      align-items: flex-start;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-list li::before {
+      content: "•";
+      color: var(--accent);
+      margin-top: -0.05rem;
+      font-size: 0.9rem;
+    }
+
+    /* Generic section layout */
+    .section-header {
+      max-width: 640px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Problema */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .problem-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .problem-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .problem-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .problem-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .problem-callout {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 16px;
+      padding: 1.25rem 1.25rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .problem-callout strong {
+      color: #e5e7eb;
+    }
+
+    /* Cómo funciona */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--background-light);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.25rem 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .step-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+    }
+
+    /* Beneficios */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .benefit-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .benefit-block h3 {
+      font-size: 1.05rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .benefit-block p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .roi-card {
+      background: linear-gradient(135deg, rgba(248, 113, 22, 0.12), rgba(15, 23, 42, 0.98));
+      border-radius: 18px;
+      border: 1px solid rgba(248, 113, 22, 0.4);
+      padding: 1.4rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .roi-item-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .roi-item-value {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .roi-item-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Funciones */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-item {
+      background: var(--background-light);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-item h3 {
+      font-size: 0.95rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .feature-item p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    /* Target */
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    /* Logos / social proof */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .logo-badge {
+      border-radius: 999px;
+      border: 1px dashed #374151;
+      padding: 0.5rem 0.9rem;
+      text-align: center;
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    /* Steps */
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .steps-item {
+      background: var(--background-light);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.3rem;
+    }
+
+    .steps-item-number {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .steps-item-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .steps-item-text {
+      color: var(--text-muted);
+    }
+
+    /* CTA final */
+    .cta-final {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-final h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-final p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.25rem 1.25rem 1.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid,
+      .problem-grid,
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .section {
+        padding: 2.75rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-card {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .section {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-mark">B</div>
+          <div class="nav-title">
+            <strong>Besimplit</strong>
+            <span>Bediesel · Control de petróleo</span>
+          </div>
+        </div>
+        <div class="nav-cta">
+          <a href="#cta" class="btn btn-outline">Ver cómo funciona</a>
+          <a href="#cta" class="btn btn-primary">Agendar demo</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="section hero" id="inicio">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span>Nuevo</span>
+              Control de combustible para camión surtidor
+            </div>
+            <h1>
+              Controla cada litro de <span>petróleo</span>
+              de tu camión surtidor
+            </h1>
+            <p class="hero-subtitle">
+              Registra cada carga por máquina, chofer y faena, incluso sin internet.
+              Detecta pérdidas, mejora los rendimientos y elimina el caos de papel,
+              WhatsApp y Excel.
+            </p>
+            <ul class="hero-bullets">
+              <li>App offline para choferes y encargados del camión surtidor.</li>
+              <li>Rendimientos reales por máquina y por faena, con alertas.</li>
+              <li>Informes listos para gerencia y mandante.</li>
+              <li>Modelo simple: 1 UF por cada 10.000 L cargados.</li>
+            </ul>
+            <div class="hero-ctas">
+              <a href="#cta" class="btn btn-primary">Agendar demo</a>
+              <a href="#cta" class="btn btn-outline">Hablar por WhatsApp</a>
+              <span class="hero-note">Implementación guiada en menos de 30 días.</span>
+            </div>
+          </div>
+          <aside class="hero-card">
+            <div class="hero-card-title">Impacto económico</div>
+            <div class="hero-metric-row">
+              <div class="hero-metric">
+                <div class="hero-metric-label">Ejemplo típico</div>
+                <div class="hero-metric-value">50.000 L/mes</div>
+                <div class="hero-metric-note">≈ $50.000.000 CLP en diésel</div>
+              </div>
+              <div class="hero-metric">
+                <div class="hero-metric-label">Costo Bediesel</div>
+                <div class="hero-metric-value">5 UF/mes</div>
+                <div class="hero-metric-note">≈ $190.000 CLP (0,38% del gasto)</div>
+              </div>
+            </div>
+            <div class="hero-divider"></div>
+            <ul class="hero-list">
+              <li>Si hoy pierdes un 1% del combustible, ya son ≈ $500.000 CLP/mes.</li>
+              <li>Con que Bediesel recupere 1–2% de pérdidas, se paga varias veces.</li>
+            </ul>
+            <p class="hero-metric-note">
+              Además, eliminas 30–60 minutos diarios de trabajo administrativo en
+              papel, WhatsApp y Excel.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Problema -->
+      <section class="section" id="problema">
+        <div class="section-inner problem-grid">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">El problema hoy</div>
+              <h2 class="section-title">Así se te va el petróleo (y el tiempo) hoy</h2>
+              <p class="section-text">
+                Si tienes camión surtidor propio, probablemente tu control de combustible se
+                parece a esto:
+              </p>
+            </div>
+            <ul class="problem-list">
+              <li class="problem-item">
+                <div class="problem-icon">1</div>
+                <div>
+                  <div class="problem-title">Registros en papel y fotos por WhatsApp</div>
+                  <div class="problem-desc">
+                    El chofer o encargado anota las cargas en papel, le saca fotos y las manda
+                    por WhatsApp a oficina. Algunas se pierden, otras no se entienden.
+                  </div>
+                </div>
+              </li>
+              <li class="problem-item">
+                <div class="problem-icon">2</div>
+                <div>
+                  <div class="problem-title">Digitación manual y Excel eternos</div>
+                  <div class="problem-desc">
+                    En la oficina alguien vuelve a digitar todo en Excel y trata de cuadrar
+                    con guías, facturas y consumos. Entre 30 y 60 minutos diarios solo en
+                    pasar datos.
+                  </div>
+                </div>
+              </li>
+              <li class="problem-item">
+                <div class="problem-icon">3</div>
+                <div>
+                  <div class="problem-title">Pérdidas difíciles de detectar</div>
+                  <div class="problem-desc">
+                    Con tanta fricción, es muy fácil que se pierda un 1–2% del combustible
+                    entre errores, rendimientos raros y algo de robo hormiga. Y casi nadie
+                    alcanza a revisarlo a tiempo.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <aside class="problem-callout">
+            <strong>El impacto real:</strong>
+            <br /><br />
+            Si compras 50.000 L/mes de diésel, estás gastando alrededor de
+            <strong>$50.000.000 CLP</strong>.
+            <br /><br />
+            Perder solo un <strong>1%</strong> equivale a <strong>500 L</strong> al mes,
+            es decir, cerca de <strong>$500.000 CLP</strong> que se van sin que nadie pueda
+            explicarlo bien.
+            <br /><br />
+            Y eso sin contar las horas hombre gastadas en planillas, fotos y cuadraturas.
+          </aside>
+        </div>
+      </section>
+
+      <!-- Cómo funciona -->
+      <section class="section" id="como-funciona">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Cómo funciona</div>
+            <h2 class="section-title">Bediesel: control desde el camión surtidor, no desde el Excel</h2>
+            <p class="section-text">
+              Bediesel es una app que usan el chofer o el encargado del camión surtidor
+              para registrar cada carga de petróleo directamente en terreno.
+              Funciona sin internet y envía los datos a la plataforma Besimplit cuando
+              tiene señal.
+            </p>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-label">Paso 1</div>
+              <h3 class="step-title">Registro en terreno</h3>
+              <p class="step-text">
+                El chofer abre la app Bediesel en su teléfono, selecciona faena y máquina
+                destino, ingresa los litros cargados y el kilometraje/horómetro.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-label">Paso 2</div>
+              <h3 class="step-title">Sincronización automática</h3>
+              <p class="step-text">
+                La app funciona offline. Cuando el teléfono tiene señal, toda la información
+                se sincroniza automáticamente con Besimplit, sin depender de fotos ni
+                mensajes.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-label">Paso 3</div>
+              <h3 class="step-title">Rendimientos y alertas</h3>
+              <p class="step-text">
+                La plataforma calcula rendimientos por máquina y faena, detecta consumos
+                anómalos y genera informes listos para gerencia y mandante.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beneficios / ROI -->
+      <section class="section" id="beneficios">
+        <div class="section-inner benefits-grid">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">Beneficios clave</div>
+              <h2 class="section-title">Lo que ganas al controlar bien el combustible</h2>
+              <p class="section-text">
+                Bediesel combina control operacional en faena con impacto financiero real.
+                No es solo un registro más: es la base para decidir con números.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>1. Control real de litros y rendimientos</h3>
+              <p>
+                Cada carga queda asociada a máquina, chofer y faena. Ves rendimientos por
+                equipo (L/hora, L/km, etc.) y detectas rápidamente máquinas o operadores
+                con consumos fuera de rango.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>2. Menos pérdidas, ROI claro</h3>
+              <p>
+                Con que Bediesel te ayude a reducir un 1–2% las pérdidas de combustible,
+                el sistema se paga solo varias veces. A partir de ahí, todo es margen.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>3. Ahorro administrativo inmediato</h3>
+              <p>
+                El chofer registra una vez desde el camión surtidor y la oficina solo
+                revisa. Se eliminan las planillas y las transcripciones manuales desde
+                WhatsApp hacia Excel.
+              </p>
+            </div>
+          </div>
+          <aside class="roi-card">
+            <div class="section-kicker">Ejemplo de retorno</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem;">Números conservadores, impacto real</h3>
+            <div class="roi-grid">
+              <div>
+                <div class="roi-item-label">Consumo mensual</div>
+                <div class="roi-item-value">50.000 L de diésel</div>
+                <div class="roi-item-note">≈ $50.000.000 CLP</div>
+              </div>
+              <div>
+                <div class="roi-item-label">Costo Bediesel</div>
+                <div class="roi-item-value">5 UF/mes</div>
+                <div class="roi-item-note">≈ $190.000 CLP (0,38% del gasto)</div>
+              </div>
+              <div>
+                <div class="roi-item-label">Pérdidas 1%</div>
+                <div class="roi-item-value">500 L/mes</div>
+                <div class="roi-item-note">≈ $500.000 CLP/mes que se van</div>
+              </div>
+            </div>
+            <p class="roi-item-note">
+              Si Bediesel te ayuda a recuperar solo ese 1% de combustible, ya estás
+              recuperando más de 2,5 veces el valor del sistema. Y eso sin contar el
+              ahorro administrativo.
+            </p>
+            <p class="roi-item-note">
+              En la práctica, muchas operaciones empiezan a ver oportunidades de ahorro
+              superiores al 1–2% cuando ordenan sus datos de combustible.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Funciones principales -->
+      <section class="section" id="funciones">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Funciones principales</div>
+            <h2 class="section-title">Todo lo que necesitas para dominar el combustible</h2>
+            <p class="section-text">
+              Bediesel se integra con Besimplit para darte trazabilidad completa de
+              combustible en tus faenas.
+            </p>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <h3>Registro de cargas en terreno (offline)</h3>
+              <p>
+                El chofer o encargado registra litros, km/horómetro, máquina y faena desde
+                el camión surtidor, incluso sin internet.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Rendimientos por máquina y faena</h3>
+              <p>
+                Cálculo automático de rendimientos por equipo y obra. Filtros por período,
+                operador y tipo de máquina.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Alertas de consumos anómalos</h3>
+              <p>
+                Detecta rendimientos fuera de rango para investigar robos, fugas o malas
+                prácticas de uso.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Informes para gerencia y mandante</h3>
+              <p>
+                Reportes claros de consumo por obra, equipo y período para apoyar estados de
+                pago y control de costos.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Integración con documentación y mantenimiento</h3>
+              <p>
+                En el mismo sistema puedes ver documentos al día de tus máquinas y sus
+                planes de mantención preventiva y correctiva.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Para quién es -->
+      <section class="section" id="para-quien">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">¿Es para ti?</div>
+            <h2 class="section-title">Pensado para empresas con camión surtidor propio</h2>
+            <p class="section-text">
+              Bediesel está diseñado para operaciones donde el combustible se distribuye
+              desde camiones surtidores hacia múltiples máquinas y faenas.
+            </p>
+          </div>
+          <p class="section-text">
+            Ideal para:
+          </p>
+          <div class="pill-list">
+            <span class="pill">Constructoras de movimiento de tierra</span>
+            <span class="pill">Obras viales</span>
+            <span class="pill">Plantas de áridos y agregados</span>
+            <span class="pill">Mediana y pequeña minería</span>
+            <span class="pill">Empresas forestales</span>
+            <span class="pill">Empresas agrícolas con maquinaria propia</span>
+          </div>
+          <p class="section-text" style="margin-top: 1.25rem;">
+            Si tienes camión surtidor propio y hoy controlas el combustible con papel,
+            WhatsApp y Excel, Bediesel está hecho para tu operación.
+          </p>
+        </div>
+      </section>
+
+      <!-- Confianza / clientes -->
+      <section class="section" id="clientes">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Confianza</div>
+            <h2 class="section-title">Empresas que ya trabajan con Besimplit</h2>
+            <p class="section-text">
+              Besimplit y sus módulos son utilizados por empresas que operan maquinaria
+              y flotas en distintos rubros.
+            </p>
+          </div>
+          <div class="logos-grid">
+            <div class="logo-badge">Constructora Harr</div>
+            <div class="logo-badge">MPF Ingeniería</div>
+            <div class="logo-badge">2TH</div>
+            <div class="logo-badge">Izarra Ingenieros</div>
+            <div class="logo-badge">MST</div>
+            <div class="logo-badge">Alkamako (forestal)</div>
+            <div class="logo-badge">Guillaume (agrícola)</div>
+            <div class="logo-badge">IDESC</div>
+            <div class="logo-badge">Don Orlando</div>
+            <div class="logo-badge">Las Araucarias</div>
+            <div class="logo-badge">Rocabedrill</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cómo empezar -->
+      <section class="section" id="como-empezar">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Implementación</div>
+            <h2 class="section-title">Implementar Bediesel es más simple de lo que parece</h2>
+            <p class="section-text">
+              Te acompañamos en todo el proceso para que el control de combustible deje de
+              depender de planillas y fotos.
+            </p>
+          </div>
+          <ul class="steps-list">
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 1</div>
+              <div class="steps-item-title">Diagnóstico rápido (20–30 minutos)</div>
+              <p class="steps-item-text">
+                Revisamos cómo estás controlando hoy el combustible, tu volumen mensual y
+                el tamaño de tu flota.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 2</div>
+              <div class="steps-item-title">Configuración inicial</div>
+              <p class="steps-item-text">
+                Cargamos tus faenas, máquinas y camiones surtidores en Besimplit y
+                dejamos listas las estructuras de registro.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 3</div>
+              <div class="steps-item-title">Capacitación a choferes y encargados</div>
+              <p class="steps-item-text">
+                En sesiones cortas mostramos cómo registrar cargas desde la app y cómo
+                revisar la información en oficina.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 4</div>
+              <div class="steps-item-title">Primer mes de uso acompañado</div>
+              <p class="steps-item-text">
+                Te ayudamos a leer los primeros informes de consumo y rendimientos para
+                identificar oportunidades de ahorro.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="section" id="cta">
+        <div class="section-inner cta-final">
+          <h2>Empieza a controlar cada litro de petróleo hoy</h2>
+          <p>
+            Si tienes camión surtidor propio y quieres dejar de depender de papel,
+            WhatsApp y Excel para controlar el combustible, agenda una demo y conversemos
+            sobre tu caso.
+          </p>
+          <div class="hero-ctas" style="justify-content: center;">
+            <a href="#" class="btn btn-primary">Agendar demo</a>
+            <a href="#" class="btn btn-outline">Hablar por WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Besimplit. Todos los derechos reservados.</div>
+        <div>Bediesel · Control de petróleo y flota para constructoras y empresas de maquinaria.</div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
