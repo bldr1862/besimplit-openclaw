@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestión de activos - Mantención y control de flota | Besimplit</title>
+  <meta name="description" content="Planifica mantenciones preventivas, registra correctivas, mantén documentos al día y aplica checklists digitales para tu flota. Menos paradas inesperadas, menos multas y mejor decisión sobre tus máquinas." />
+  <style>
+    :root {
+      --primary: #0081cb;
+      --primary-dark: #00639a;
+      --primary-soft: #e3f2fd;
+      --background: #f5f5f5;
+      --background-alt: #ffffff;
+      --border-subtle: #e5e7eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(to bottom, #f9fafb 0%, #f3f4f6 40%, #ffffff 100%);
+    }
+
+    header {
+      border-top: 4px solid var(--primary);
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.5rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .nav-title strong {
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-title span {
+      font-weight: 600;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.16s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(0, 129, 203, 0.3);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-soft);
+      border-color: rgba(0, 129, 203, 0.6);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 2.75rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.15rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      background: #f9fafb;
+    }
+
+    .eyebrow span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: #0f172a;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: var(--text-muted);
+    }
+
+    .hero-bullets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.6rem 1.5rem;
+      margin-bottom: 1.75rem;
+      padding-left: 0;
+    }
+
+    .hero-bullets li {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .hero-bullets li::before {
+      content: "";
+      margin-top: 0.4rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      background: var(--background-alt);
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-metric-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-metric {
+      flex: 1;
+    }
+
+    .hero-metric-label {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-metric-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .hero-metric-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-divider {
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+      margin: 1.25rem 0 1rem;
+    }
+
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-list li {
+      display: flex;
+      gap: 0.4rem;
+      align-items: flex-start;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-list li::before {
+      content: "•";
+      color: var(--primary);
+      margin-top: -0.05rem;
+      font-size: 0.9rem;
+    }
+
+    /* Generic section layout */
+    .section-header {
+      max-width: 640px;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+      color: #111827;
+    }
+
+    .section-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Problema */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .problem-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .problem-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      color: var(--primary);
+      background: #f9fafb;
+    }
+
+    .problem-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .problem-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .problem-callout {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.25rem 1.25rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .problem-callout strong {
+      color: #111827;
+    }
+
+    /* Cómo funciona */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.25rem 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .step-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+    }
+
+    /* Beneficios / ROI */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .benefit-block {
+      margin-bottom: 1.75rem;
+    }
+
+    .benefit-block h3 {
+      font-size: 1.05rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .benefit-block p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .roi-card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.4rem 1.5rem;
+      font-size: 0.9rem;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .roi-item-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .roi-item-value {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .roi-item-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Funciones */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-item h3 {
+      font-size: 0.95rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .feature-item p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    /* Target */
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    /* Logos / social proof */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .logo-img-customer {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(0.15);
+      opacity: 0.9;
+    }
+
+    /* Steps */
+    .steps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .steps-item {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem 1.3rem;
+    }
+
+    .steps-item-number {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .steps-item-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .steps-item-text {
+      color: var(--text-muted);
+    }
+
+    /* CTA final */
+    .cta-final {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-final h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+      color: #111827;
+    }
+
+    .cta-final p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.25rem 1.25rem 1.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #f9fafb;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid,
+      .problem-grid,
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .section {
+        padding: 2.75rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2.2rem;
+      }
+
+      .hero-card {
+        padding: 1.4rem 1.25rem;
+      }
+
+      .section {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <a href="https://besimplit.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://besimplit.com/wp-content/uploads/2017/07/logo-bs-positivo.svg" alt="Besimplit" class="logo-img" />
+          </a>
+          <div class="nav-title">
+            <strong>Gestión de activos</strong>
+            <span>Mantención y control de flota</span>
+          </div>
+        </div>
+        <div class="nav-cta">
+          <a href="#cta" class="btn btn-outline">Ver cómo funciona</a>
+          <a href="#cta" class="btn btn-primary">Agendar demo</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="section hero" id="inicio">
+        <div class="section-inner hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span>Nuevo</span>
+              Plan de gestión de activos para tu flota
+            </div>
+            <h1>
+              Mantén tu flota <span>operativa, segura</span>
+              y bajo control
+            </h1>
+            <p class="hero-subtitle">
+              Planifica mantenciones preventivas, registra correctivas, mantén documentos al día
+              y aplica checklists digitales desde el celular. Menos paradas inesperadas, menos
+              multas y mejores decisiones sobre tus máquinas.
+            </p>
+            <div class="hero-badges">
+              <span class="hero-badge">Mantenciones preventivas</span>
+              <span class="hero-badge">Mantenciones correctivas</span>
+              <span class="hero-badge">Gestión documental</span>
+              <span class="hero-badge">Checklist digital de maquinaria</span>
+            </div>
+            <ul class="hero-bullets">
+              <li>Reduce paradas inesperadas con un plan de mantención claro.</li>
+              <li>Evita multas y detenciones por documentos vencidos.</li>
+              <li>Registra cada correctiva y su costo para identificar máquinas "tragaplata".</li>
+              <li>Checklist diarios desde el celular, con fotos y observaciones.</li>
+            </ul>
+            <div class="hero-ctas">
+              <a href="#cta" class="btn btn-primary">Agendar demo</a>
+              <a href="#cta" class="btn btn-outline">Hablar por WhatsApp</a>
+              <span class="hero-note">Ideal para flotas con costo hora máquina sobre $40.000 CLP.</span>
+            </div>
+          </div>
+          <aside class="hero-card">
+            <div class="hero-card-title">Impacto en tu flota</div>
+            <div class="hero-metric-row">
+              <div class="hero-metric">
+                <div class="hero-metric-label">Ejemplo de flota</div>
+                <div class="hero-metric-value">20 máquinas críticas</div>
+                <div class="hero-metric-note">Excavadoras, cargadores, camiones, etc.</div>
+              </div>
+              <div class="hero-metric">
+                <div class="hero-metric-label">Plan gestión de activos</div>
+                <div class="hero-metric-value">≈ 5 UF/mes</div>
+                <div class="hero-metric-note">0,25 UF x máquina/mes ≈ $190.000 CLP</div>
+              </div>
+            </div>
+            <div class="hero-divider"></div>
+            <ul class="hero-list">
+              <li>Con costo hora máquina ≈ $40.000 CLP, un día detenido (8 h) son $320.000 CLP.</li>
+              <li>Con que evites un día de detención al mes en una máquina, el plan se paga y sobra.</li>
+            </ul>
+            <p class="hero-metric-note">
+              Además, una sola multa o detención por documentos vencidos puede costar varios meses del sistema.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Problema -->
+      <section class="section" id="problema">
+        <div class="section-inner problem-grid">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">El problema hoy</div>
+              <h2 class="section-title">Fallas, papeles vencidos y máquinas "tragaplata"</h2>
+              <p class="section-text">
+                En muchas empresas la gestión de activos se basa en memoria, planillas sueltas
+                y papeles que nadie revisa a tiempo.
+              </p>
+            </div>
+            <ul class="problem-list">
+              <li class="problem-item">
+                <div class="problem-icon">1</div>
+                <div>
+                  <div class="problem-title">Mantenciones preventivas improvisadas</div>
+                  <div class="problem-desc">
+                    Se hacen "cuando se acuerdan" o cuando la máquina ya empezó a fallar.
+                    No hay un plan claro por horas, kilómetros o fechas.
+                  </div>
+                </div>
+              </li>
+              <li class="problem-item">
+                <div class="problem-icon">2</div>
+                <div>
+                  <div class="problem-title">Correctivas sin historial ni costo claro</div>
+                  <div class="problem-desc">
+                    Las reparaciones se anotan en papel, WhatsApp o no se anotan. Es difícil
+                    saber cuánto se ha gastado realmente en cada máquina.
+                  </div>
+                </div>
+              </li>
+              <li class="problem-item">
+                <div class="problem-icon">3</div>
+                <div>
+                  <div class="problem-title">Documentos dispersos y vencidos</div>
+                  <div class="problem-desc">
+                    Revisiones, seguros, certificaciones y licencias se controlan con Excel o
+                    carpetas físicas. Un vencimiento se traduce en multas y máquinas detenidas.
+                  </div>
+                </div>
+              </li>
+              <li class="problem-item">
+                <div class="problem-icon">4</div>
+                <div>
+                  <div class="problem-title">Checklists en papel que nadie mira</div>
+                  <div class="problem-desc">
+                    Los checklist diarios, cuando existen, se llenan en papel y no alimentan
+                    ninguna decisión: no disparan correctivas ni indicadores.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <aside class="problem-callout">
+            <strong>La consecuencia:</strong>
+            <br /><br />
+            <ul style="padding-left: 1.1rem; margin: 0; font-size: 0.9rem; color: var(--text-muted);">
+              <li>Paradas inesperadas que frenan obras completas.</li>
+              <li>Multas y problemas con el mandante por documentación incompleta.</li>
+              <li>Máquinas en las que se sigue invirtiendo sin saber si todavía conviene.</li>
+            </ul>
+            <br />
+            Con una flota de 20 máquinas y costo hora ≈ $40.000 CLP, unas pocas horas de
+            detención inesperada al mes ya pueden superar el valor del sistema.
+          </aside>
+        </div>
+      </section>
+
+      <!-- Cómo funciona -->
+      <section class="section" id="como-funciona">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Cómo funciona</div>
+            <h2 class="section-title">Un solo lugar para la salud y los papeles de tu flota</h2>
+            <p class="section-text">
+              El plan de gestión de activos de Besimplit combina mantenciones, documentación y
+              checklists en una sola plataforma, conectada con tus datos de operación.
+            </p>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-label">Componente 1</div>
+              <h3 class="step-title">Mantenciones preventivas planificadas</h3>
+              <p class="step-text">
+                Define planes por horas de uso, kilómetros o tiempo. El sistema genera tareas
+                y alertas antes de que toque la mantención para cada máquina.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-label">Componente 2</div>
+              <h3 class="step-title">Correctivas con historial y costo</h3>
+              <p class="step-text">
+                Cada vez que una máquina falla, registras qué se hizo, qué repuestos se
+                usaron, cuánto costó y cuántas horas estuvo detenida.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-label">Componente 3</div>
+              <h3 class="step-title">Gestión documental con alertas</h3>
+              <p class="step-text">
+                Centraliza documentos de máquinas y operadores (seguros, revisiones,
+                licencias, certificaciones) y recibe alertas antes de los vencimientos.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-label">Componente 4</div>
+              <h3 class="step-title">Checklist digital de maquinaria</h3>
+              <p class="step-text">
+                Operadores completan checklists diarios o por turno desde el celular, con
+                fotos y observaciones. Los hallazgos disparan tareas de mantención.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Beneficios / ROI -->
+      <section class="section" id="beneficios">
+        <div class="section-inner benefits-grid">
+          <div>
+            <div class="section-header">
+              <div class="section-kicker">Beneficios clave</div>
+              <h2 class="section-title">Lo que ganas al gestionar bien tus activos</h2>
+              <p class="section-text">
+                El objetivo no es llenar formularios, sino tener máquinas disponibles, seguras
+                y con un costo de mantenimiento que tenga sentido para el negocio.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>1. Menos paradas inesperadas</h3>
+              <p>
+                Con mantenciones preventivas y checklists diarios, reduces fallas graves que
+                detienen máquinas completas y atrasan obras.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>2. Menos multas y riesgos por papeles</h3>
+              <p>
+                Alertas de documentos próximos a vencer para máquinas y operadores. Menos
+                sorpresas en inspecciones o auditorías del mandante.
+              </p>
+            </div>
+            <div class="benefit-block">
+              <h3>3. Decisiones con datos sobre tu flota</h3>
+              <p>
+                Historial completo de correctivas y costos para decidir cuándo seguir
+                reparando y cuándo conviene reemplazar una máquina.
+              </p>
+            </div>
+          </div>
+          <aside class="roi-card">
+            <div class="section-kicker">Ejemplo de retorno</div>
+            <h3 style="margin: 0 0 0.6rem; font-size: 1.05rem;">Con números conservadores</h3>
+            <div class="roi-grid">
+              <div>
+                <div class="roi-item-label">Flota de ejemplo</div>
+                <div class="roi-item-value">20 máquinas críticas</div>
+                <div class="roi-item-note">Costo hora máquina ≈ $40.000 CLP</div>
+              </div>
+              <div>
+                <div class="roi-item-label">Plan gestión de activos</div>
+                <div class="roi-item-value">≈ 5 UF/mes</div>
+                <div class="roi-item-note">0,25 UF x máquina/mes ≈ $190.000 CLP</div>
+              </div>
+              <div>
+                <div class="roi-item-label">Un día de detención</div>
+                <div class="roi-item-value">8 h x $40.000 = $320.000</div>
+                <div class="roi-item-note">En una sola máquina ya supera el costo del plan</div>
+              </div>
+            </div>
+            <p class="roi-item-note">
+              Con que el sistema te ayude a evitar un día de detención al mes en una máquina
+              crítica, ya estás recuperando 1,7 veces lo que pagas por el plan.
+            </p>
+            <p class="roi-item-note">
+              Si agregas una multa o detención por documentos vencidos que logras evitar,
+              el retorno se multiplica.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Funciones principales -->
+      <section class="section" id="funciones">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Funciones principales</div>
+            <h2 class="section-title">Todo lo que incluye el plan de gestión de activos</h2>
+            <p class="section-text">
+              Los módulos trabajan juntos para darte una vista completa de la salud y el
+              costo de tu flota.
+            </p>
+          </div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <h3>Calendario de mantenciones preventivas</h3>
+              <p>
+                Planifica tareas por horas de uso, kilómetros o tiempo. Recibe alertas cuando
+                se acercan las fechas y asigna responsables.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Registro de mantenciones correctivas</h3>
+              <p>
+                Registra cada reparación con detalle: trabajos realizados, repuestos,
+                proveedor, costo y horas de detención de la máquina.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Gestión documental de máquinas y operadores</h3>
+              <p>
+                Centraliza seguros, revisiones técnicas, certificaciones, licencias y otros
+                documentos clave, con fechas de vencimiento y alertas.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Checklist digital con fotos</h3>
+              <p>
+                Operadores completan checklists desde el celular. Pueden adjuntar fotos y
+                observaciones para reportar anomalías.
+              </p>
+            </li>
+            <li class="feature-item">
+              <h3>Indicadores por máquina y por flota</h3>
+              <p>
+                Horas de detención, monto gastado en correctivas y preventivas, número de
+                fallas por máquina y más.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Para quién es -->
+      <section class="section" id="para-quien">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">¿Es para ti?</div>
+            <h2 class="section-title">Pensado para flotas donde una máquina detenida sí duele</h2>
+            <p class="section-text">
+              El plan de gestión de activos es ideal para empresas donde el costo hora de una
+              máquina y el riesgo de parada son relevantes.
+            </p>
+          </div>
+          <p class="section-text">
+            Ideal para:
+          </p>
+          <div class="pill-list">
+            <span class="pill">Constructoras de movimiento de tierra</span>
+            <span class="pill">Obras viales</span>
+            <span class="pill">Plantas de áridos y agregados</span>
+            <span class="pill">Mediana y pequeña minería</span>
+            <span class="pill">Empresas forestales</span>
+            <span class="pill">Empresas agrícolas con maquinaria propia</span>
+            <span class="pill">Empresas de arriendo de maquinaria</span>
+          </div>
+          <p class="section-text" style="margin-top: 1.25rem;">
+            Si hoy tus mantenciones, documentos y checklists están repartidos entre Excel,
+            papel y WhatsApp, este plan está pensado para ordenar todo en un solo lugar.
+          </p>
+        </div>
+      </section>
+
+      <!-- Confianza / clientes -->
+      <section class="section" id="clientes">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Confianza</div>
+            <h2 class="section-title">Empresas que ya trabajan con Besimplit</h2>
+            <p class="section-text">
+              Besimplit y sus módulos son utilizados por empresas que operan maquinaria y
+              flotas en distintos rubros.
+            </p>
+          </div>
+          <div class="logos-grid">
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo3.png" alt="Cliente 1" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo7.png" alt="Cliente 2" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo4.png" alt="Cliente 3" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo2.png" alt="Cliente 4" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/09/CUSTOMERS-LOGOS-1.png" alt="Clientes 5" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo5.png" alt="Cliente 6" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/logo6.png" alt="Cliente 7" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/06/Logo1.png" alt="Cliente 8" class="logo-img-customer" />
+            <img src="https://besimplit.com/wp-content/uploads/2025/12/CUSTOMERS-LOGOS-3.png" alt="Clientes 9" class="logo-img-customer" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Cómo empezar -->
+      <section class="section" id="como-empezar">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-kicker">Implementación</div>
+            <h2 class="section-title">Cómo implementar el plan de gestión de activos</h2>
+            <p class="section-text">
+              Te acompañamos paso a paso para que la información de tus máquinas pase de
+              papeles y planillas a una plataforma viva.
+            </p>
+          </div>
+          <ul class="steps-list">
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 1</div>
+              <div class="steps-item-title">Diagnóstico de flota</div>
+              <p class="steps-item-text">
+                Revisamos cuántas máquinas tienes, qué documentos manejas hoy y cómo
+                registras mantenciones y checklists.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 2</div>
+              <div class="steps-item-title">Configuración de planes y documentos</div>
+              <p class="steps-item-text">
+                Configuramos planes de mantención, cargamos documentos clave y definimos
+                los checklists para cada tipo de máquina.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 3</div>
+              <div class="steps-item-title">Capacitación a equipo y operadores</div>
+              <p class="steps-item-text">
+                Capacitamos a encargados de mantención y operadores para registrar correctivas
+                y usar checklists digitales desde el celular.
+              </p>
+            </li>
+            <li class="steps-item">
+              <div class="steps-item-number">Paso 4</div>
+              <div class="steps-item-title">Primer mes de seguimiento</div>
+              <p class="steps-item-text">
+                Acompañamos el primer mes para ajustar planes y ayudarte a leer indicadores de
+                detención, costos y cumplimiento de mantenciones.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="section" id="cta">
+        <div class="section-inner cta-final">
+          <h2>Empieza a gestionar tus activos con números, no con intuición</h2>
+          <p>
+            Si quieres reducir paradas inesperadas, evitar multas y tomar mejores decisiones
+            sobre tu flota, agenda una demo y conversemos sobre el plan de gestión de
+            activos para tu operación.
+          </p>
+          <div class="hero-ctas" style="justify-content: center;">
+            <a href="#" class="btn btn-primary">Agendar demo</a>
+            <a href="#" class="btn btn-outline">Hablar por WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Besimplit. Todos los derechos reservados.</div>
+        <div>Gestión de activos · Mantención y control de flota para empresas de maquinaria.</div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
