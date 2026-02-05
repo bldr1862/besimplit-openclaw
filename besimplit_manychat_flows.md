@@ -1,165 +1,158 @@
 # Flujos ManyChat - Besimplit
 
-## 1. Flujo ManyChat - Control de petróleo / Bediesel
+## 1. Flujo ManyChat - Petróleo (Bediesel) – Frío
 
-### Paso 1 – Mensaje inicial
+> **Nota:** Este flujo asume que el lead viene de una campaña de petróleo (Bediesel) y que ya capturamos en Meta:
+> - Escenario de abastecimiento (camión surtidor / estanques / proveedor / otro)
+> - Litros/mes (opción múltiple)
+> 
+> El flujo se dispara según el `ad_name` / `adset_name` de la campaña de petróleo.
 
-> Hola {{first_name}} 👋  
->  
-> Gracias por dejar tus datos para conocer cómo controlar mejor el consumo de petróleo en tu empresa.  
->  
-> ¿Te puedo hacer algunas preguntas rápidas para ver si lo que hacemos en Besimplit te puede ayudar?
+### Trigger
 
-Botones:
-- **Sí, claro**  
-- **Prefiero que me envíes info primero**
+- Nuevo lead desde formulario de Meta **de la campaña de petróleo**.
+- Condición en ManyChat: `ad_name` o `adset_name` contiene "Petroleo" (o el texto que definas en el nombre del conjunto/anuncio).
 
-**Si elige “Prefiero que me envíes info primero”**:
+Custom fields recomendados en ManyChat:
 
-> Perfecto, te resumo en una frase:  
->  
-> En Besimplit tenemos **Bediesel**, una app para el camión surtidor que registra cada carga de petróleo por máquina y faena (incluso sin internet) y genera rendimientos reales y alertas de pérdidas.  
->  
-> Si te parece, igual te hago 2–3 preguntas rápidas para ver si tiene sentido para ustedes 👇
-
-Botón: **Ok, hazme las preguntas**
+- `petroleo_escenario` → `camion` / `estanque` / `proveedor` / `otro` (desde Meta).
+- `petroleo_litros_mes` → `<10k` / `10k-30k` / `>30k` (desde WA).
+- `petroleo_cuando_llamar` → `hoy` / `mañana` / `otro`.
 
 ---
 
-### Paso 2 – Industria
+### Escenario 1 – Camión surtidor propio
 
-> Para entender mejor tu operación, ¿en qué industria trabajan principalmente?
+**Mensaje 1 – Saludo + litros**
+
+> Hola {{first_name}}, soy de Besimplit.  
+> Me llegaron tus datos y vi que tienen **camión surtidor propio** para abastecer las máquinas. Justo ahí es donde más valor aporta nuestro sistema de control de petróleo.  
+>  
+> Para dimensionar bien tu operación, ¿cuántos litros de petróleo consumen aproximadamente al mes?
+
+[Usuario responde → guardar en `petroleo_litros_mes`]
+
+**Mensaje 2 – Mini pitch + uso de litros**
+
+> Gracias {{first_name}} 🙌  
+>  
+> Con **{{petroleo_litros_mes}} al mes** hay mucha plata pasando por el camión surtidor.  
+>  
+> Lo que hace Besimplit es que el chofer registra cada carga (máquina, litros, horómetro/km) desde el celular, y en la oficina se ve todo ordenado por máquina y faena, sin planillas ni fotos por WhatsApp.  
+>  
+> Así se puede controlar el rendimiento de cada equipo e incluso las horas de trabajo.
+
+**Mensaje 3 – Preguntar cuándo llamar**
+
+> ¿Cuándo te puedo llamar 10–15 minutos para ver cómo lo están manejando hoy y si esto hace sentido para ustedes?
 
 Botones:
-- Construcción  
-- Áridos  
-- Minería  
-- Rental  
-- Forestal  
-- Otra
+- Hoy  
+- Mañana  
+- Otro momento
 
-Respuesta contextual:
+**Mensaje 4 – Confirmación**
 
-> Perfecto, en el sector {{industria}} normalmente vemos problemas como:  
-> • Guías sin respaldo  
-> • Cargas sin trazabilidad por máquina  
-> • Poca visibilidad de rendimientos de combustible
+- Si **Hoy**:
+  > Perfecto 👍  
+  > Te llamo hoy para revisar cómo están controlando el combustible.
+
+- Si **Mañana**:
+  > Perfecto 👍  
+  > Te llamo mañana para revisar cómo están controlando el combustible.
+
+- Si **Otro momento**:
+  > De acuerdo 🙂  
+  > Cuando tengas un espacio, me avisas por aquí y coordinamos la llamada.
+
+En todos los casos, guardar en `petroleo_cuando_llamar` el valor elegido.
 
 ---
 
-### Paso 3 – Litros mensuales
+### Escenario 2 – Estanques móviles o fijos
 
-> Aproximadamente, ¿cuántos litros de petróleo consumen al mes?
+**Mensaje 1 – Saludo + litros**
 
-Botones:
-- Menos de 5.000 L  
-- Entre 5.000 y 20.000 L  
-- Entre 20.000 y 50.000 L  
-- Más de 50.000 L  
+> Hola {{first_name}}, soy de Besimplit.  
+> Me llegaron tus datos y vi que usan **estanques móviles o fijos** para abastecer las máquinas. Es un caso muy común entre nuestros clientes.  
+>  
+> Para dimensionar bien tu operación, ¿cuántos litros de petróleo consumen aproximadamente al mes?
 
-Respuestas breves según opción:
+[Usuario responde → guardar en `petroleo_litros_mes`]
 
-- Si "Menos de 5.000":
-  > Gracias, es un volumen acotado pero igual relevante si tienes flota propia.
+**Mensaje 2 – Mini pitch**
 
-- Si "Entre 5.000 y 20.000" o más:
-  > Ok, ya con ese nivel de consumo el control del combustible empieza a ser crítico.
+> Gracias {{first_name}} 🙌  
+>  
+> Con **{{petroleo_litros_mes}} al mes**, tener claro qué máquina se llevó qué cantidad desde los estanques puede marcar mucha diferencia en costos.  
+>  
+> Con Besimplit, cada vez que se carga desde el estanque se registra en el celular (máquina, litros, horómetro/km) y en la oficina ves todo por máquina y faena, sin depender de papeles ni fotos sueltas.
+
+**Mensaje 3 – Preguntar cuándo llamar**
+
+> ¿Cuándo te puedo llamar 10–15 minutos para ver cómo lo están manejando hoy y si esto hace sentido para ustedes?
+
+Botones y confirmaciones: igual que en el escenario 1.
 
 ---
 
-### Paso 4 – Número de máquinas
+### Escenario 3 – Proveedor lleva el petróleo y alguien interno registra
 
-> Y, más o menos, ¿cuántos equipos o máquinas usan hoy que consumen petróleo?
+**Mensaje 1 – Saludo + litros**
 
-Botones:
-- Menos de 15  
-- Entre 15 y 30  
-- Más de 30  
+> Hola {{first_name}}, soy de Besimplit.  
+> Me llegaron tus datos y vi que tienen un **proveedor de petróleo** que abastece las máquinas y alguien interno registra las cargas. Es un esquema muy común en faenas.  
+>  
+> Para dimensionar bien tu operación, ¿cuántos litros de petróleo consumen aproximadamente al mes?
 
-Respuesta:
+[Usuario responde → guardar en `petroleo_litros_mes`]
 
-> Perfecto, gracias 🙌
+**Mensaje 2 – Mini pitch (ajustado)**
+
+> Gracias {{first_name}} 🙌  
+>  
+> Con **{{petroleo_litros_mes}} al mes**, es clave tener **trazabilidad clara de cada carga** para evitar pérdidas y malos entendidos entre lo que entrega el proveedor y lo que se registra.  
+>  
+> Besimplit permite que esa persona registre cada carga desde el celular (máquina, litros, horómetro/km) y que en la oficina se pueda cuadrar fácil lo que entregó el proveedor con lo que realmente se cargó a las máquinas.
+
+**Mensaje 3 – Preguntar cuándo llamar**
+
+> ¿Cuándo te puedo llamar 10–15 minutos para revisar cómo lo están haciendo hoy y ver si te ayuda a tener esa trazabilidad?
+
+Botones y confirmaciones: igual que en el escenario 1.
 
 ---
 
-### Paso 5 – Camión surtidor
+### Escenario 4 – Otro tipo de abastecimiento
 
-> ¿Tienen su propio camión surtidor para abastecer las máquinas?
+**Mensaje 1 – Saludo + litros**
 
-Botones:
-- Sí  
-- No  
-- Estamos evaluando tener uno
-
-**Si responde “No”**:
-
-> Gracias por la info {{first_name}}.  
+> Hola {{first_name}}, soy de Besimplit.  
+> Me llegaron tus datos y vi que abastecen de una forma distinta a camión, estanques o proveedor en faena. Igual podemos revisar tu caso 🙂  
 >  
-> Bediesel está pensado principalmente para empresas que **tienen camión surtidor propio** y quieren controlar cada litro que sale de ese camión hacia las máquinas.  
+> Para dimensionar bien tu operación, ¿cuántos litros de petróleo consumen aproximadamente al mes?
+
+[Usuario responde → guardar en `petroleo_litros_mes`]
+
+**Mensaje 2 – Mini pitch genérico**
+
+> Gracias {{first_name}} 🙌  
 >  
-> Si en el futuro empiezan a surtir su propio combustible, feliz retomamos la conversación 🙂  
+> Con **{{petroleo_litros_mes}} al mes**, tener claro qué máquina se llevó qué cantidad de combustible puede marcar una diferencia grande en costos, independiente de cómo abastecen hoy.  
 >  
-> Mientras tanto, si quieres, te puedo enviar un resumen de cómo otras empresas controlan mejor el consumo cargando en estaciones externas.
+> Besimplit permite registrar cada carga desde el celular (máquina, litros, horómetro/km) y tener la info ordenada por equipo y faena, en lugar de depender solo de papeles o planillas.
 
-Botón opcional: **Sí, envíame el resumen**
+**Mensaje 3 – Preguntar cuándo llamar**
 
-**Si responde “Sí” o “Estamos evaluando”**:
+> ¿Cuándo te puedo llamar 10–15 minutos para entender mejor tu forma de trabajo y ver si esto encaja en tu operación?
 
-> Buenísimo, en empresas con camión surtidor propio es donde más impacto logramos con Bediesel 👌
-
----
-
-### Paso 6 – Mini pitch antes de pedir llamada
-
-> Para que tengas más contexto:  
->  
-> 🔹 Con Bediesel, el chofer del camión surtidor registra cada carga (máquina, litros, horómetro/faena) desde el teléfono, incluso sin internet.  
-> 🔹 En la oficina ves **rendimientos por máquina y faena**, y puedes detectar pérdidas de 1–2% que muchas veces se pasan por alto.  
-> 🔹 Además, eliminas gran parte del trabajo de papel + fotos + Excel.  
->  
-> Para ayudarte bien, lo ideal es una llamada corta (10–15 min) y ver si hace sentido para ustedes.
-
-> ¿Te parece si coordinamos una llamada?
-
-Botones:
-- **Sí, hoy**  
-- **Sí, mañana**  
-- **Otro día / Enviar info por correo**
-
----
-
-### Paso 7 – Captura de horario / cierre
-
-**Si elige “Sí, hoy” o “Sí, mañana”**:
-
-> Perfecto 👍  
->  
-> ¿En qué horario te acomoda más que te llamemos? (por ejemplo, “entre 10:00 y 12:00” o “después de las 16:00”)
-
-[Respuesta libre]
-
-> Súper. Nuestro equipo te contactará en ese rango horario para entender bien cómo están gestionando hoy el consumo de petróleo y ver si Besimplit realmente les puede aportar valor.  
->  
-> Mientras tanto puedes revisar más info aquí:  
-> 👉 **[enlace a la landing de Bediesel]**
-
-**Si elige “Otro día / Enviar info por correo”**:
-
-> Ningún problema 🙂  
->  
-> ¿Prefieres que primero te enviemos un resumen por correo y luego veamos si agendamos llamada?
-
-Botones:
-- Sí, envía resumen  
-- Prefiero coordinar llamada más adelante
-
-Si **"Sí, envía resumen"**:
-
-> Perfecto, te enviaremos un resumen de cómo funciona Bediesel y algunos ejemplos de ahorros típicos, y quedamos atentos para cuando quieras hablar.
+Botones y confirmaciones: igual que en el escenario 1.
 
 ---
 
 ## 2. Flujo ManyChat - Plan de Gestión de Activos (mantención, doc, checklist)
+
+*(sin cambios respecto a la versión anterior, se mantiene para referencia futura)*
 
 ### Paso 1 – Mensaje inicial
 
@@ -290,7 +283,7 @@ Botones:
 
 > Perfecto 👍  
 >  
-> ¿En qué horario te acomoda más que te llamemos? (por ejemplo, “entre 10:00 y 12:00” o “después de las 16:00”)
+> ¿En qué horario te acomoda más que te llamemos? (por ejemplo, "entre 10:00 y 12:00" o "después de las 16:00")
 
 [Respuesta libre]
 
