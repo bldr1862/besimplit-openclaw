@@ -5,6 +5,7 @@ import {
   interpolate,
   useCurrentFrame,
   useVideoConfig,
+  staticFile,
 } from "remotion";
 import React from "react";
 
@@ -185,7 +186,7 @@ export const MyComposition: React.FC = () => {
                 }}
               >
                 <Img
-                  src="https://besimplit.com/wp-content/uploads/2025/09/HOME-2.png"
+                  src={staticFile("home-2.png")}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -236,7 +237,7 @@ export const MyComposition: React.FC = () => {
                 }}
               >
                 <Img
-                  src="https://besimplit.com/wp-content/uploads/2025/09/HOME-1.png"
+                  src={staticFile("home-1.png")}
                   style={{
                     width: "100%",
                     height: "100%",
