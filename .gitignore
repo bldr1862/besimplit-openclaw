@@ -1,0 +1,24 @@
+# Node / JS
+node_modules/
+**/node_modules/
+.npm-cache/
+
+# Remotion output
+remotion/out/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# TypeScript build
+**/dist/
+**/build/
