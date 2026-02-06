@@ -14,9 +14,11 @@ Este directorio agrupa los recursos visuales (imágenes) que se usan en landings
   - `iphone app store bediesel.png` → Mockup de app Bediesel en iPhone/App Store.
 
 - `assets/activos/`
-  - `dashboard_mantencion.png` → Dashboard de mantenciones.
-  - `dashboard_costos.png` → Dashboard de costos.
-  - `dashboard_costos_2.png` → Otra vista de costos.
+  - `dashboard_mantencion.png` → Dashboard de mantenciones de activos.
+
+- `assets/faenas/`
+  - `dashboard_costos.png` → Dashboard de costos de faenas.
+  - `dashboard_costos_2.png` → Otra vista de costos de faenas.
 
 - `assets/bodega/`
   - `screenshot_bodega.png` → Screenshot de módulo de bodega.
