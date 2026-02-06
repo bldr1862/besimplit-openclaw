@@ -75,6 +75,7 @@ const fadeIn = (frame: number, start: number, duration: number) =>
     extrapolateRight: "clamp",
   });
 
+// Video institucional general
 export const MyComposition: React.FC = () => {
   const frame = useCurrentFrame();
   const {width} = useVideoConfig();
@@ -293,6 +294,420 @@ export const MyComposition: React.FC = () => {
           </div>
         </Sequence>
       </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+// Video Bediesel A: Robo y desorden (Edison)
+export const BedieselRoboDesorden: React.FC = () => {
+  const frame = useCurrentFrame();
+
+  const screenDuration = 90; // 3s a 30fps
+
+  const baseStyle: React.CSSProperties = {
+    fontFamily:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    color: textMain,
+  };
+
+  return (
+    <AbsoluteFill style={{backgroundColor: "#0f172a", justifyContent: "center"}}>
+      {/* Logo fijo en esquina */}
+      <div
+        style={{
+          position: "absolute",
+          top: 48,
+          left: 64,
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+        }}
+      >
+        <Img
+          src={staticFile("logo-besimplit.png")}
+          style={{height: 56}}
+        />
+      </div>
+
+      {/* Screen 1 */}
+      <Sequence from={0} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f9fafb",
+            background:
+              "linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,64,175,0.9))",
+            opacity: fadeIn(frame, 0, 15),
+          }}
+        >
+          <h1 style={{fontSize: 70, margin: 0}}>
+            ¿El diésel no cuadra a fin de mes?
+          </h1>
+          <p style={{fontSize: 34, margin: 0, maxWidth: 900}}>
+            Muchos litros salen del estanque, pero las planillas no alcanzan a explicar
+            dónde se pierden.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 2 */}
+      <Sequence from={screenDuration} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f9fafb",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration, 15),
+          }}
+        >
+          <p style={{fontSize: 40, margin: 0, maxWidth: 900}}>
+            Papel, Excel y fotos por WhatsApp = imposible saber <br />
+            dónde se pierden los litros a tiempo.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 3 */}
+      <Sequence from={screenDuration * 2} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 80,
+            color: "#f9fafb",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration * 2, 15),
+          }}
+        >
+          <div style={{flex: 1, paddingRight: 40}}>
+            <h1 style={{fontSize: 60, margin: 0}}>Bediesel registra cada carga</h1>
+            <p style={{fontSize: 34, marginTop: 24, maxWidth: 900}}>
+              Desde el camión surtidor o estanque hacia cada máquina y camión. <br />
+              Litros, horómetro o km, fecha y operador, todo en una sola app.
+            </p>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: 500,
+                borderRadius: 32,
+                overflow: "hidden",
+                border: "1px solid #1e293b",
+                boxShadow: "0 24px 60px rgba(15,23,42,0.75)",
+                backgroundColor: "#0b1120",
+              }}
+            >
+              <Img
+                src={staticFile("dashboard_petroleo.png")}
+                style={{width: "100%", height: "100%", objectFit: "cover"}}
+              />
+            </div>
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 4 */}
+      <Sequence from={screenDuration * 3} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 80,
+            color: "#f9fafb",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration * 3, 15),
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: 500,
+                borderRadius: 32,
+                overflow: "hidden",
+                border: "1px solid #1e293b",
+                boxShadow: "0 24px 60px rgba(15,23,42,0.75)",
+                backgroundColor: "#0b1120",
+              }}
+            >
+              <Img
+                src={staticFile("dashboard_rendimientos.png")}
+                style={{width: "100%", height: "100%", objectFit: "cover"}}
+              />
+            </div>
+          </div>
+          <div style={{flex: 1, paddingLeft: 40}}>
+            <h1 style={{fontSize: 54, margin: 0}}>Detecta pérdidas de 1–2%</h1>
+            <p style={{fontSize: 32, marginTop: 24, maxWidth: 900}}>
+              Ve rendimientos por máquina, camión y faena. <br />
+              Menos sospechas y más datos para tomar decisiones.
+            </p>
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 5 */}
+      <Sequence from={screenDuration * 4} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f9fafb",
+            background:
+              "radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 60%), #020617",
+            opacity: fadeIn(frame, screenDuration * 4, 15),
+          }}
+        >
+          <h1 style={{fontSize: 60, margin: 0}}>Controla cada litro de diésel</h1>
+          <p style={{fontSize: 32, margin: 0, maxWidth: 900}}>
+            Agenda una demo de Bediesel y ve cómo se ve tu operación con datos reales.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
+
+// Video Bediesel B: Orden y visibilidad (Italo/agro)
+export const BedieselOrdenVisibilidad: React.FC = () => {
+  const frame = useCurrentFrame();
+
+  const screenDuration = 90; // 3s a 30fps
+
+  const baseStyle: React.CSSProperties = {
+    fontFamily:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    color: textMain,
+  };
+
+  return (
+    <AbsoluteFill style={{backgroundColor: "#0f172a", justifyContent: "center"}}>
+      {/* Logo fijo en esquina */}
+      <div
+        style={{
+          position: "absolute",
+          top: 48,
+          left: 64,
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+        }}
+      >
+        <Img
+          src={staticFile("logo-besimplit.png")}
+          style={{height: 56}}
+        />
+      </div>
+
+      {/* Screen 1 */}
+      <Sequence from={0} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f9fafb",
+            background:
+              "linear-gradient(135deg, rgba(21,128,61,0.95), rgba(4,120,87,0.95))",
+            opacity: fadeIn(frame, 0, 15),
+          }}
+        >
+          <h1 style={{fontSize: 70, margin: 0}}>
+            ¿No sabes cuántos litros se gasta cada tractor?
+          </h1>
+          <p style={{fontSize: 34, margin: 0, maxWidth: 900}}>
+            En servicios agrícolas, cada equipo trabaja en un campo distinto y el consumo
+            termina perdido entre cuadernos y chats.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 2 */}
+      <Sequence from={screenDuration} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f9fafb",
+            backgroundColor: "#022c22",
+            opacity: fadeIn(frame, screenDuration, 15),
+          }}
+        >
+          <p style={{fontSize: 40, margin: 0, maxWidth: 900}}>
+            Registros sueltos en cuadernos y WhatsApp <br />
+            = sin historia clara de consumo por equipo.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 3 */}
+      <Sequence from={screenDuration * 2} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 80,
+            color: "#f0fdf4",
+            backgroundColor: "#022c22",
+            opacity: fadeIn(frame, screenDuration * 2, 15),
+          }}
+        >
+          <div style={{flex: 1, paddingRight: 40}}>
+            <h1 style={{fontSize: 60, margin: 0}}>Bediesel como libro de combustible</h1>
+            <p style={{fontSize: 34, marginTop: 24, maxWidth: 900}}>
+              Registra cada carga desde tu estanque de 5.000 L hacia cada tractor y equipo. <br />
+              Litros, horómetro, campo y operador en un solo lugar.
+            </p>
+          </div>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: 500,
+                borderRadius: 32,
+                overflow: "hidden",
+                border: "1px solid #14532d",
+                boxShadow: "0 24px 60px rgba(6,95,70,0.75)",
+                backgroundColor: "#022c22",
+              }}
+            >
+              <Img
+                src={staticFile("dashboard_report_maquinas.png")}
+                style={{width: "100%", height: "100%", objectFit: "cover"}}
+              />
+            </div>
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 4 */}
+      <Sequence from={screenDuration * 3} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 80,
+            color: "#f0fdf4",
+            backgroundColor: "#022c22",
+            opacity: fadeIn(frame, screenDuration * 3, 15),
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: 280,
+                borderRadius: 40,
+                overflow: "hidden",
+                border: "1px solid #14532d",
+                boxShadow: "0 18px 40px rgba(6,95,70,0.75)",
+                backgroundColor: "#022c22",
+              }}
+            >
+              <Img
+                src={staticFile("iphone-app-bediesel.png")}
+                style={{width: "100%", height: "100%", objectFit: "cover"}}
+              />
+            </div>
+          </div>
+          <div style={{flex: 1, paddingLeft: 40}}>
+            <h1 style={{fontSize: 54, margin: 0}}>Orden por máquina y temporada</h1>
+            <p style={{fontSize: 32, marginTop: 24, maxWidth: 900}}>
+              Sabes cuántos litros se gasta cada tractor, <br />
+              en qué campo y en qué periodo.
+            </p>
+          </div>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 5 */}
+      <Sequence from={screenDuration * 4} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            color: "#f0fdf4",
+            background:
+              "radial-gradient(circle at top, rgba(34,197,94,0.35), transparent 60%), #022c22",
+            opacity: fadeIn(frame, screenDuration * 4, 15),
+          }}
+        >
+          <h1 style={{fontSize: 60, margin: 0}}>Deja de adivinar el diésel</h1>
+          <p style={{fontSize: 32, margin: 0, maxWidth: 900}}>
+            Escríbenos y te mostramos Bediesel funcionando en tu operación agrícola.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
     </AbsoluteFill>
   );
 };
