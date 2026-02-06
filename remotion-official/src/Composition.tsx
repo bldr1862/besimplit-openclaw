@@ -711,3 +711,228 @@ export const BedieselOrdenVisibilidad: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// Video Bediesel Meta-friendly vertical (9:16)
+export const BedieselMetaVertical: React.FC = () => {
+  const frame = useCurrentFrame();
+  const screenDuration = 84; // 2.8s * 5 ≈ 14s
+
+  const baseStyle: React.CSSProperties = {
+    fontFamily:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    color: "#f9fafb",
+  };
+
+  return (
+    <AbsoluteFill
+      style={{
+        backgroundColor: "#020617",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {/* Logo en la parte superior */}
+      <div
+        style={{
+          position: "absolute",
+          top: 40,
+          left: 40,
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          opacity: fadeIn(frame, 0, 10),
+        }}
+      >
+        <Img
+          src={staticFile("logo-besimplit.png")}
+          style={{height: 48}}
+        />
+      </div>
+
+      {/* Screen 1 – Problema */}
+      <Sequence from={0} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 80,
+            textAlign: "center",
+            background:
+              "linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,64,175,0.9))",
+            opacity: fadeIn(frame, 0, 15),
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 64,
+              margin: 0,
+            }}
+          >
+            ¿El diésel no cuadra
+            <br />
+            a fin de mes?
+          </h1>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 2 – Dolor */}
+      <Sequence from={screenDuration} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 80,
+            textAlign: "center",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration, 15),
+          }}
+        >
+          <p
+            style={{
+              fontSize: 40,
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            Papel, Excel y fotos por WhatsApp
+            <br />
+            = imposible saber dónde se pierden litros.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 3 – Solución */}
+      <Sequence from={screenDuration * 2} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 80,
+            textAlign: "center",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration * 2, 15),
+          }}
+        >
+          <div
+            style={{
+              width: 520,
+              borderRadius: 36,
+              overflow: "hidden",
+              border: "1px solid #1e293b",
+              boxShadow: "0 32px 80px rgba(15,23,42,0.9)",
+              marginBottom: 32,
+            }}
+          >
+            <Img
+              src={staticFile("dashboard_petroleo.png")}
+              style={{width: "100%", height: "100%", objectFit: "cover"}}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: 38,
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            Bediesel registra cada carga
+            <br />
+            desde camión o estanque a cada equipo.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 4 – Beneficio */}
+      <Sequence from={screenDuration * 3} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 80,
+            textAlign: "center",
+            backgroundColor: "#020617",
+            opacity: fadeIn(frame, screenDuration * 3, 15),
+          }}
+        >
+          <div
+            style={{
+              width: 520,
+              borderRadius: 36,
+              overflow: "hidden",
+              border: "1px solid #1e293b",
+              boxShadow: "0 32px 80px rgba(15,23,42,0.9)",
+              marginBottom: 32,
+            }}
+          >
+            <Img
+              src={staticFile("dashboard_rendimientos.png")}
+              style={{width: "100%", height: "100%", objectFit: "cover"}}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: 38,
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            Detecta pérdidas de 1–2%
+            <br />
+            y ve rendimientos por máquina y faena.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+
+      {/* Screen 5 – CTA */}
+      <Sequence from={screenDuration * 4} durationInFrames={screenDuration}>
+        <AbsoluteFill
+          style={{
+            ...baseStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 24,
+            padding: 80,
+            textAlign: "center",
+            background:
+              "radial-gradient(circle at top, rgba(56,189,248,0.35), transparent 60%), #020617",
+            opacity: fadeIn(frame, screenDuration * 4, 15),
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 60,
+              margin: 0,
+            }}
+          >
+            Controla cada litro de diésel.
+          </h1>
+          <p
+            style={{
+              fontSize: 34,
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            Escríbenos para ver Bediesel
+            <br />
+            en tu operación.
+          </p>
+        </AbsoluteFill>
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
