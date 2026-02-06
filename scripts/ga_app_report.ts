@@ -1,7 +1,7 @@
 import {BetaAnalyticsDataClient} from '@google-analytics/data';
 import * as fs from 'fs';
 
-// Basic usage report for Besimplit platform GA4 property
+// Basic usage report for Besimplit platform GA4 property (app)
 
 const PROPERTY_ID = '463617233';
 
@@ -23,17 +23,16 @@ async function main() {
     ],
   });
 
-  // 2) Top pages (Page path and screen class)
+  // 2) Top screens (unifiedPagePathScreen + screenPageViews)
   const [screens] = await client.runReport({
     property: `properties/${PROPERTY_ID}`,
     dateRanges: [{startDate: '28daysAgo', endDate: 'yesterday'}],
-    // GA4 UI "Page path and screen class" → dimension pagePathPlusQueryString
-    dimensions: [{name: 'pagePathPlusQueryString'}],
-    metrics: [{name: 'activeUsers'}, {name: 'views'}],
+    dimensions: [{name: 'unifiedPagePathScreen'}],
+    metrics: [{name: 'screenPageViews'}],
     orderBys: [
       {
         metric: {
-          metricName: 'views',
+          metricName: 'screenPageViews',
         },
         desc: true,
       },
@@ -68,19 +67,18 @@ async function main() {
   lines.push('');
   lines.push('## 2. Pantallas / vistas más usadas');
   lines.push('');
-  lines.push('| Pantalla / vista | Usuarios activos | Vistas |');
-  lines.push('|------------------|------------------|--------|');
+  lines.push('| Pantalla / vista (unifiedPagePathScreen) | Vistas (screenPageViews) |');
+  lines.push('|-----------------------------------------|---------------------------|');
 
   for (const row of screens.rows ?? []) {
     const screen = row.dimensionValues?.[0]?.value ?? '(not set)';
-    const users = row.metricValues?.[0]?.value ?? '0';
-    const views = row.metricValues?.[1]?.value ?? '0';
+    const views = row.metricValues?.[0]?.value ?? '0';
 
-    const safeScreen = screen.replace(/\|/g, '\\\|');
-    lines.push(`| ${safeScreen} | ${users} | ${views} |`);
+    const safeScreen = screen.replace(/\|/g, '\\|');
+    lines.push(`| ${safeScreen} | ${views} |`);
   }
 
-  const outPath = 'ga_app_report.md';
+  const outPath = 'analytics/ga_app_report_463617233.md';
   fs.writeFileSync(outPath, lines.join('\n'), 'utf-8');
   console.log(`GA app report written to ${outPath}`);
 }
