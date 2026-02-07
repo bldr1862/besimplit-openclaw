@@ -1,0 +1,8 @@
+# Python dependencies used by Besimplit OpenClaw utilities
+# Install with: python3 -m pip install -r requirements.txt
+
+pypdf>=5.0.0
+pandas>=2.2.0
+requests>=2.32.0
+numpy>=1.26.0
+streamlit>=1.40.0

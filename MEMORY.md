@@ -132,3 +132,10 @@ Clientes de referencia (no exhaustivo): Constructora Harr, MPF Ingeniería, 2TH,
 
 ## 9. Desafío Clave Actual
 Potenciar y visibilizar todos los módulos (especialmente los poco explotados: ingreso directo de operadores, alimentación, bodega, formularios) y ganar nuevos clientes con una propuesta de valor clara y segmentada por industria, manteniendo la estructura de costos bajo control.
+
+## 10. Infra y datos conectados (2026-02-05)
+- **GA4 Web (270760925):** propiedad de besimplit.com (marketing, SEO, landings y blog). Script `scripts/ga_landing_report.ts` genera `analytics/ga_landing_report_web_270760925.md`.
+- **GA4 App (463617233):** propiedad de la plataforma/app Besimplit (uso real del producto). Script `scripts/ga_app_report.ts` genera `analytics/ga_app_report_463617233.md`.
+- **Meta Ads (act_1465382983659605):** integración vía Marketing API con token guardado en `/home/moltbot/.openclaw/meta/meta-access-token.txt`. Resumen en `analytics/meta_ads_overview_act_1465382983659605.md`.
+- **ManyChat flows:** definidos en `besimplit_manychat_flows.md`, con flujo específico de WhatsApp para campañas de petróleo (Bediesel) basado en escenario de abastecimiento (camión, estanques, proveedor, otro) y litros/mes.
+- **Escenarios de Bediesel soportados:** surtidor propio, estanques móviles o fijos, proveedor externo que abastece en faena, y combinaciones/trasvasijes entre ellos.

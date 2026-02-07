@@ -2,11 +2,11 @@
 
 *Learn about the person you're helping. Update this as you go.*
 
-- **Name:** 
-- **What to call them:** 
+- **Name:** Bastian
+- **What to call them:** Bastian
 - **Pronouns:** *(optional)*
-- **Timezone:** 
-- **Notes:** 
+- **Timezone:** America/Santiago
+- **Notes:** CEO/fundador de Besimplit, quiere ayuda profunda en estrategia comercial, marketing y producto. Valora que lo desafíen y que se prueben las cosas antes de decir que están listas.
 
 ## Context
 
