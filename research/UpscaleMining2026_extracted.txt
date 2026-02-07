@@ -1,0 +1,742 @@
+
+
+===== PAGE 1 =====
+
+BASES 2026
+
+
+===== PAGE 2 =====
+
+I. DESCRIPCIÓN GENERAL 
+DEL PROGRAMA
+Upscale Mining es un programa del
+Centro de Innovación UC Anacleto
+Angelini, apoyado por Corfo, que
+convoca a emprendimientos
+innovadores de base científico-
+tecnológica. Se enfoca en minería y/o
+energía, sectores clave para la
+transición energética, mediante el
+escalamiento de soluciones y la
+generación de pilotos a nivel industrial.
+El programa ofrece evaluación de
+expertos de sus tecnologías; conexión
+con la industria a través de la
+generación de pilotos, junto con aliados
+como Dictuc, como motor de desarrollo
+tecnológico; talleres de formación;
+asesorías técnicas especializadas;
+mentorías; actividades de vinculación
+con la industria; y apoyo para levantar
+financiamiento público y privado.
+Además, se sustenta en un modelo
+colaborativo junto a la industria,
+enfocado en el desarrollo de
+habilidades y conocimientos claves para
+contribuir al avance en la madurez
+tecnológica, apoyando la
+implementación y rápida salida al
+mercado de las soluciones de
+tecnologías limpias a través de
+formación, mentorías, networking y
+capital para los emprendimientos.
+2
+II. OBJETIVO DEL 
+PROGRAMA
+Upscale Mining busca a los mejores
+emprendimientos de base científica y/o
+tecnológica aplicados a las industrias
+de minería, energía, para facilitar su
+implementación y potenciar su
+crecimiento mediante conexiones y
+asesorías estratégicas y técnicas
+relevantes.
+Para ello, el programa pone énfasis en
+la preparación de los emprendedores
+que cuentan con soluciones listas para
+ser piloteadas en condiciones reales. El
+objetivo del programa es diseñar el
+mapa de implementación; crear un
+modelo de escalamiento robusto, una
+estrategia de crecimiento adecuada, y
+afrontar procesos de levantamiento de
+capital privado, entre otras materias,
+por medio de clases metodológicas y
+asesorías estratégicas que apuntan
+principalmente a:
+• Validación técnica, diseño del
+programa de pilotaje.
+• Crecimiento en ventas.
+• Escalabilidad del negocio.
+• Acompañamiento en la toma de
+decisiones.
+• Generación de conexiones.
+
+===== PAGE 3 =====
+
+III. ENFOQUE DEL 
+PROGRAMA Y FECHAS 
+CLAVE
+Este programa busca acelerar
+emprendimientos enfocados en
+soluciones tecnológicas con alto
+potencial de impacto para la industria
+minera y/o energética, donde se
+aborden desafíos en la operación,
+productividad, sostenibilidad y
+seguridad, entre otras áreas clave. El
+enfoque del programa de aceleración es
+fortalecer la escalabilidad de los
+emprendimientos, y potenciar la
+ejecución de pilotos con empresas de la
+industria, en la búsqueda de validación
+en entornos reales y crecimiento del
+emprendimiento.
+Asimismo, promueve el desarrollo de
+tecnologías alineadas con la minería
+responsable y la eficiencia en el uso de
+recursos, contribuyendo a posicionar a
+Chile como un polo de innovación
+minera a nivel global.
+Etapas del proceso:
+• Convocatoria: de enero a abril de
+2026
+• Selección y diagnóstico: mayo de
+2026
+• Programa de aceleración: de junio a
+agosto de 2026
+Al concluir el programa se espera que los
+equipos emprendedores hayan logrado
+dimensionar su plan de desarrollo
+técnico, incluyendo un prototipo
+avanzado, un plan de
+internacionalización y validar su modelo
+de negocios.
+3
+IV. PÚBLICO OBJETIVO
+Pueden postular fundadores o
+cofundadores de empresas con fines de
+lucro, que se encuentren legalmente
+constituidas en Chile, que busquen
+instalarse en las industrias mineras y/o
+energéticas, con soluciones de
+tecnologías limpias y que cumplan los
+siguientes requisitos:
+• Alto potencial de crecimiento.
+• Modelo de negocio innovador.
+• Inicio de actividades en el Servicio de
+Impuestos Internos.
+• No tener más de 6 años de
+antigüedad.
+• Nivel de inglés intermedio o superior,
+de al menos 1 integrante del equipo.
+No existe un máximo de integrantes por
+equipo, sin embargo, cada persona sólo
+puede participar de una única
+postulación. Cada equipo debe designar
+a un representante, quien actuará como
+contacto principal con la organización.
+Este representante será responsable de
+mantener informado a todos los
+integrantes de su equipo de lo que
+anuncie o solicite la organización en
+todas las etapas del programa.
+
+
+===== PAGE 4 =====
+
+Se espera que a lo largo del programa
+las tecnologías avancen hacia un TRL
+superior.
+Si el proyecto está basado en software o
+plataformas debe encontrarse en una
+etapa de prueba funcional. No se
+aceptarán postulaciones a nivel de
+ideas de negocios o ideas de
+investigación.
+Para medir la madurez de proyectos
+basados en ciencia y tecnología, se
+sugiere consultar la escala internacional
+Technology Readiness Level.
+V. PROYECTOS 
+POSTULANTES
+NIVEL DE DESARROLLO DE LOS 
+PROYECTOS POSTULANTES
+Se espera recibir proyectos cuyo
+desarrollo, al momento postular,
+contemple al menos un prototipo a
+pequeña escala. Esto quiere decir que,
+para postular los equipos deben tener al
+menos un sistema de prototipo testeado
+en terreno con desempeño cercano al
+esperado a gran escala. Esto equivale a
+encontrarse en TRL 6 o superior. En la
+etapa de selección se tomará en cuenta
+el grado de desarrollo para escoger a los
+emprendimientos seleccionados.
+4
+Technology Readiness Level (http://goo.gl/mHcbjv)
+• TRL 0: Idea. Concepto no probado, no se han realizado pruebas.
+• TRL 1: Investigación básica. Principios postulados y observados, pero no hay pruebas
+experimentales disponibles.
+• TRL 2: Formulación de la tecnología. Se han formulado conceptos e hipótesis.
+• TRL 3: Investigación aplicada. Han completado las primeras pruebas en laboratorio,
+prueba de concepto realizada.
+• TRL 4: Prototipo a pequeña escala realizado en laboratorio (“prototipo rudimentario”).
+• TRL 5: Prototipo a gran escala probado en terreno.
+• TRL 6: Sistema de prototipo testeado en terreno con desempeño cercano al
+esperado.
+• TRL 7: Sistema demostrativo pre-comercial funcionando en ambiente
+operativo (sistema robusto).
+• TRL 8: Primera versión comercial. Problemas de manufactura y diseño
+resueltos.
+• TRL 9: Aplicación comercial completa. Tecnología disponible para los
+consumidores
+
+===== PAGE 5 =====
+
+ÁREAS ATINGENTES A LAS 
+SOLUCIONES POSTULADAS
+Para participar en el programa, las
+postulaciones deben enfocarse en
+innovaciones relacionadas con las
+siguientes áreas:
+• Energías renovables
+• Eficiencia energética
+• Almacenamiento de energía
+• Tecnologías de transporte limpias y
+sostenibles
+• Captura de carbono
+• Economía circular
+• Gestión del agua
+• Manejo y explotación de relaves
+VI. PROCESO DE 
+CONVOCATORIA
+La convocatoria al programa se
+realizará mediante un sistema de
+“concurso”, es decir, las postulaciones
+serán recepcionadas durante un plazo
+fijo, por el que los emprendedores
+podrán postular en cualquier momento,
+desde la convocatoria hasta el cierre de
+postulaciones.
+La postulación se realizará a través del
+sitio
+https://centrodeinnovacion.uc.cl/upscal
+e-mining, donde se encontrarán
+disponibles las bases del programa y el
+formulario de postulación.
+5
+En caso de modificar los plazos de
+postulación, la organización lo
+informará oportunamente en ese mismo
+sitio web.
+La organización no se hace responsable
+por fallas técnicas que impidan
+postulaciones de último minuto, ni se
+aceptarán postulaciones por otro medio.
+Los datos solicitados en el formulario de
+postulación corresponden a información
+general, tanto del postulante como del
+proyecto, una descripción detallada del
+emprendimiento (problema/solución,
+equipo, estado de desarrollo, nivel de
+ventas y/o inversión, mercado objetivo,
+entre otros) e información adicional
+relevante para ser considerada en la
+selección.
+ADMISIBILIDAD O 
+DESCALIFICACIÓN
+La organización presume que los
+proyectos postulados son de autoría de
+uno o más integrantes de cada equipo,
+quienes tienen el derecho a utilizar la
+tecnología o los resultados de
+investigación para llevar adelante el
+proyecto y, asimismo, que no existen
+terceras partes que tengan derechos de
+uso o explotación comercial respecto de
+estos resultados.
+
+
+===== PAGE 6 =====
+
+Las postulaciones podrán ser
+declaradas inadmisibles debido a las
+siguientes condiciones:
+a) Proyectos que presenten sólo una
+idea de negocio sin pruebas
+experimentales, prueba de concepto
+o pruebas de laboratorio que la
+validen (anterior a TRL 5).
+b) Empresas con más de 6 años de
+antigüedad al momento de la
+postulación.
+c) Empresas con ventas netas anuales
+mayores de $800.000.000 anuales
+de facturación.
+d) Proyectos basados en
+investigaciones o prototipos que no
+tengan derecho a utilizar la I+D.
+e) Equipos que cuenten con uno o más
+integrantes participando en más de
+una postulación. En este caso, todas
+las postulaciones involucradas serán
+declaradas fuera de bases.
+f) Los equipos que posean algún
+integrante que sea juez
+seleccionador o integrante del
+comité organizador y/o evaluador del
+programa en curso, o que tenga
+alguna relación de parentesco o
+conflicto de intereses.
+g) Formulario de postulación
+incompleto.
+Sólo las postulaciones declaradas 
+admisibles serán evaluadas.
+6
+
+
+===== PAGE 7 =====
+
+VII. CRITERIOS DE EVALUACIÓN Y SELECCIÓN DE 
+POSTULACIONES
+Para la selección de los emprendimientos se aplicarán los siguientes criterios de
+evaluación:
+Oportunidad de 
+mercado, ventas y 
+validación 
+comercial
+Se evaluará el crecimiento y consolidación de las ventas y la 
+tracción generada para validar la capacidad de satisfacer la 
+necesidad y oportunidad detectada en el mercado durante el 
+último año.
+15%
+Potencial técnico 
+escalabilidad, y 
+madurez de la 
+tecnología
+Se evaluará la capacidad del producto o servicio para 
+satisfacer la necesidad detectada mediante una solución 
+escalable que logre superar barreras de ventas en tiempos 
+acotados. Se considerarán los resultados de pruebas 
+experimentales, pruebas de concepto y/o prototipos. Esta 
+evidencia deberá ser adjuntada al formulario en formato PDF 
+o JPG, si se trata de imágenes, o enlaces públicos a YouTube o 
+Vimeo si se desea presentar material audiovisual.
+25%
+Ventajas 
+tecnológicas, 
+innovación y grado 
+de apropiabilidad
+Debe ser innovadora y puede ser totalmente nueva o una 
+nueva aplicación de un producto, solución o tecnología 
+existente. Se evaluará la claridad de la propuesta de valor del 
+proyecto, su grado de diferenciación, su viabilidad de 
+implantación y las potenciales barreras de entrada que tenga 
+respecto a las soluciones disponibles en el mercado.
+20%
+Equipo
+Se evaluará qué tan adecuado es el equipo para ejecutar el 
+proyecto, con relación a la experiencia de los integrantes y sus 
+redes. Se priorizará la selección de equipos liderados por 
+mujeres.
+25%
+Capacidad de 
+crecimiento
+Se evaluará la calidad y capacidad de la red expandida del 
+equipo para sostener el emprendimiento y entregar ventajas 
+competitivas, acceso a canales de distribución, proveer 
+componentes clave de la solución, etc.
+15%
+7
+
+
+===== PAGE 8 =====
+
+Los seleccionados serán notificados a
+través del correo electrónico registrado
+en el formulario de postulación, y
+deberá confirmar su participación en el
+programa en un plazo no superior a los
+10 días hábiles, contados desde el
+envío de la notificación. En caso
+contrario, se entenderá que el
+emprendimiento seleccionado renuncia
+a su cupo, el que será asignado al
+emprendimiento con más alta
+calificación de la lista de espera.
+Todas las postulaciones declaradas
+admisibles serán evaluadas por
+especialistas, quienes entregarán a un
+comité experto sus recomendaciones.
+La organización podrá solicitar
+información adicional y/o aclaratoria
+y/o entrevista, de ser necesario.
+VIII. PROCESO DE 
+SELECCIÓN DE 
+CONVOCATORIA
+Finalizado el período de postulación, el
+equipo del Centro de Innovación UC
+llevará a cabo una revisión de cada uno
+de los proyectos, teniendo en
+consideración los antecedentes
+proporcionados al momento de su
+registro. El proceso de selección de
+estos emprendimientos consta tres
+etapas:
+1. Evaluación técnica: Cada
+postulación será evaluada desde un
+punto de vista técnico para
+determinar si cumple con los
+criterios de selección establecidos
+en este documento.
+2. Comité de Selección: Se conformará
+un Comité de Selección con
+profesionales encargados de evaluar
+los proyectos postulados, con el fin
+de identificar aquellos que cumplan
+con el perfil de emprendimientos en
+etapa avanzada y puedan formar
+parte del programa.
+*En esta etapa se seleccionarán a
+los emprendimientos que serán
+categorizados como “postulantes”
+para participar en el lanzamiento.
+3. El comité experto será el encargado
+de tomar la decisión final respecto a
+los 15 proyectos seleccionados que
+pasarán al programa de aceleración.
+8
+
+
+===== PAGE 9 =====
+
+IX. ETAPAS DEL 
+PROGRAMA
+El Centro de Innovación UC ofrece apoyo
+estratégico y redes sin costo alguno a
+aquellos emprendimientos que
+participen del programa.
+Las etapas del programa son las
+siguientes:
+1. CONVOCATORIA
+Durante esta etapa las startups tendrán
+la oportunidad de postular al programa
+de aceleración de Upscale Mining, a
+través del siguiente formulario:
+https://forms.fillout.com/t/v8G39gtmYCus
+En esta etapa:
+• Se realizará un evento de kick off del
+programa, al cual serán invitadas
+todas las empresas o
+emprendimientos postulantes.
+• Se explicará en detalle el objetivo del
+programa y el impacto que se espera
+provocar en el ecosistema nacional de
+innovación.
+• Se realizarán charlas con referentes
+nacionales y/o internacionales de
+innovación en tecnologías limpias y
+soluciones aplicadas a los sectores de
+minería y de energía.
+Después de completar un diagnóstico
+obligatorio, Se elegirán al menos a 15
+startups para la etapa de aceleración
+del programa.
+9
+2. DIAGNÓSTICO
+Las empresas seleccionadas serán
+invitadas a una reunión individual en
+donde el equipo de validación técnica y
+comercial realizará diversas preguntas y
+se aclararán dudas sobre la solución que
+no hayan sido profundizadas
+anteriormente, además de aplicar un
+diagnóstico tecnológico.
+3. PROGRAMA DE ACELERACIÓN
+En este periodo se buscará desafiar los
+modelos de negocios de las empresas
+seleccionadas buscando las verticales de
+mayor valor y rentabilidad de cada
+negocio. Como resultado se espera lograr
+un modelo robusto y un deck potente con
+todo lo importante para lograr los
+objetivos de escalamiento y
+levantamiento de capital.
+Algunas actividades en el proceso de
+aceleración son las siguientes:
+• Programa formativo y seguimiento
+• Mentorías comerciales
+• Asesoría técnica y seguimiento
+• Asesoría especializada de la industria
+• Pilotos
+
+
+===== PAGE 10 =====
+
+4. VINCULACIÓN CON EMPRESAS E
+INVERSIONISTAS
+En esta etapa los equipos presentan su
+pitch, tanto de ventas como de
+levantamiento de capital, a empresas
+interesadas en el uso de la tecnología.
+Luego de recibir feedback por parte de
+las empresas, los seleccionados serán
+invitados a participar de un proceso de
+validación y diseño de programa de
+pilotajes.
+5. HOJA DE RUTA
+La hoja de ruta para la validación y
+escalamiento de soluciones
+innovadoras considera diversas etapas
+críticas. En primer lugar, se deben
+identificar regulaciones y otros criterios
+técnicos específicos, analizando las
+normativas y estándares que impacten
+la solución, tanto a nivel nacional como
+internacional, con el objetivo de
+garantizar el cumplimiento de todos los
+requisitos legales y técnicos.
+Posteriormente, se procederá a diseñar
+y detallar planes de pilotaje, elaborando
+un plan integral que contemple los
+recursos necesarios, cronogramas,
+métricas clave y escenarios de
+validación, asegurando que las pruebas
+estén alineadas con las condiciones
+reales de implementación.
+10
+Es por ello que se realizarán asesorías
+técnicas individuales con el apoyo de
+DICTUC y CNP, en donde se profundizará
+en el mapa de desarrollo de la solución
+y en la elaboración del plan de pilotaje,
+hasta su validación técnica a escala
+industrial en condiciones exigentes.
+Al concluir el programa se espera que
+los equipos logren al menos un
+prototipo avanzado (con plan detallado
+de pilotaje dimensionado y listo para ser
+implementado) y un modelo de negocios
+validado, con lo cual podrán avanzar
+significativamente hacia la
+comercialización de sus tecnologías,
+postular a nuevas fuentes de
+financiamiento y/o crecer fuertemente
+en el mercado.
+X. RESPONSABILIDADES
+DE LOS PARTICIPANTES
+Cada participante del programa, a partir
+de la confirmación mediante correo
+electrónico de su participación en el
+proceso acepta:
+• Resguardar toda la infraestructura
+física y tecnológica del recinto de
+ejecución del programa en instancias
+presenciales, así como el material
+digital y/o físico que le sea provisto
+con la finalidad de apoyar su
+participación.
+• No reproducir, duplicar ni utilizar este
+material para otros eventos que
+busquen o persigan fines similares a
+los de Upscale Mining.
+
+===== PAGE 11 =====
+
+• Mantener una actitud cordial y de
+respeto con todos los participantes,
+organizadores, mentores,
+presentadores, jurados, periodistas y
+toda aquella persona que participe
+en el desarrollo del programa, en
+virtud de mantener un clima de
+cordialidad y de respeto por los
+demás y su trabajo.
+• No revelar ni divulgar ningún tipo de
+información a la que tenga o pueda
+tener acceso, con relación a las ideas
+y modelos de negocio provenientes
+de otros participantes o de los
+mismos mentores, tutores o equipo
+de organización.
+• Utilizar un lenguaje adecuado a las
+circunstancias y mantener especial
+cuidado en las expresiones que se
+viertan para referirse a cualquier
+persona participante o ausente en el
+programa.
+• Cada participante debe contar con un
+mecanismo de respaldo personal de
+los datos y desarrollos obtenidos en
+su equipo durante el desarrollo del
+programa. Considerando esto, la
+organización del evento no es
+responsable de la pérdida de
+información o datos que el
+participante no haya respaldado en
+medios electrónicos, ópticos,
+digitales o físicos previamente.
+• Periódicamente, la organización
+requerirá información sobre el
+emprendimiento con la finalidad de
+levantar métricas de impacto; tales
+como el F29 en Chile para acreditar
+ventas, número de empleados full
+time, número de clientes, etc.
+11
+• Los participantes deben responder
+encuestas de satisfacción
+relacionadas a la experiencia del
+proceso en general en los plazos
+establecidos.
+La organización no se hace responsable
+por:
+• Pérdidas, extravíos, hurtos o robos de
+especies y/o bienes de los
+participantes durante el desarrollo de
+actividades.
+• Difusión de propiedad intelectual en
+espacios de colaboración y/o
+conversaciones formales o informales
+que se den en el contexto del
+programa y/o eventos.
+• Uso, usufructo, copia, interpretación
+o reinterpretación de ideas,
+conceptos, prototipos, esquemas,
+modelos u otros, vertidos pública o
+privadamente a personas asistentes
+al programa.
+• Accidentes que puedan ocurrir por
+errores de manipulación de equipos
+eléctricos y/o electrónicos que
+utilicen o a los que tengan acceso los
+participantes del evento. Accidentes
+ocurridos en el transcurso del evento,
+imputables a descuidos de los
+participantes del evento.
+• Fallas en el suministro eléctrico o de
+la conexión a internet.
+• Daños causados a equipos eléctricos
+y/o electrónicos por fallas en el
+abastecimiento de energía.
+
+===== PAGE 12 =====
+
+XII. CONFIDENCIALIDAD, 
+USO DE LA INFORMACIÓN 
+Y PROPIEDAD 
+INTELECTUAL
+A continuación, se presenta la pauta de
+comportamiento que define y delimita el
+uso y tratamiento de la información que
+los participantes entregarán a la
+organización durante el desarrollo del
+programa:
+• El título y la descripción general
+del proyecto serán de dominio
+público.
+• Toda la información solicitada por
+el comité organizador y/o
+evaluador será tratada con
+absoluta confidencialidad y su uso
+estará limitado a tres aspectos:
+• La evaluación y seguimiento
+del proyecto en el contexto del
+programa Upscale Mining.
+• Acciones de apoyo a estos
+proyectos en el contexto de
+iniciativas de incubación y
+aceleración de
+emprendimientos.
+• Métricas históricas del
+programa, que permiten
+visualizar la evolución general
+de los emprendimientos y no
+implica el uso de información
+personal sino sólo de los
+proyectos.
+12
+En ningún caso la información facilitada
+será transmitida o comunicada a
+personas o entidades públicas o
+privadas que no pertenezcan al proceso
+de selección o evaluación sin el previo
+consentimiento y autorización de los
+autores.
+La Universidad Católica no tiene interés
+en participar en la propiedad de los
+proyectos presentados ni en obtener
+ideas para desarrollar proyectos
+similares. Por lo tanto, no existen
+asuntos relativos a la repartición de la
+propiedad de los proyectos
+participantes en el programa Upscale
+Mining.
+Los derechos de autor, de propiedad
+intelectual o industrial de los proyectos
+pertenecen a sus autores. Ellos
+autorizan a los organizadores a usar el
+nombre del proyecto, sin límite
+temporal, para ser mencionado en toda
+la difusión del programa o para
+cualquier acción o evento relacionado
+de alguna manera con Upscale Mining.
+Los participantes serán responsables
+de haber formalizado las medidas de
+protección de sus derechos
+intelectuales e industriales, si los
+hubiera, previo a la postulación.
+Se reitera que los participantes son
+responsables de manejar qué
+información hacen pública y cuál
+definen como confidencial, indicando
+explícitamente a la organización cuando
+entregue información confidencial,
+señalándole como tal.
+
+===== PAGE 13 =====
+
+XIII. ABANDONO DEL 
+PROGRAMA
+El Centro de Innovación UC Anacleto
+Angelini se reserva el derecho de
+solicitar el abandono del programa a
+emprendimientos que no cumplan con
+los estándares de participación.
+Asimismo, respetará la decisión de
+aquellos que no deseen continuar en el
+programa, en cualquiera de sus etapas
+(antes de recibir inversión).
+XIV. ACEPTACIÓN DE LAS
+BASES
+Toda persona natural o jurídica, ya sea
+de manera individual o un equipo
+participante, declara haber leído y
+aceptado las presentes bases técnicas
+del programa, sometiéndose el (los)
+participante (s) a todo lo dispuesto en
+cada numeral explícito del presente
+documento, por lo cual, cualquier
+incumplimiento de ellas, podría ser
+causal de expulsión del programa con
+multas asociadas a la gravedad del
+acto.
+El Centro de Innovación UC Anacleto
+Angelini se reserva el derecho de
+realizar cambios a estas bases, en el
+espíritu de mejorar la ejecución del
+programa.
+Estos cambios serán comunicados en la
+página web oficial de Upscale Mining y
+notificados a quienes participen de él
+vía correo electrónico.
+13
+
+
+===== PAGE 14 =====
+
+Si tienes dudas 
+escríbenos a 
+upscalemining@uc.cl
